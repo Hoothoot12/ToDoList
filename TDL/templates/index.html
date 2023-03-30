@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoList</title>
+</head>
+<body>
+<h1>My ToDoList</h1>
+    <ul>
+        {% if number==0 %}
+        <p>List is empty.</p>
+        {% else %}
+        {% for item in lists%}
+        <li>
+        <a href="{{url_for('delete',id=item.id)}}">❌</a>
+          {{item['title']}} - {{item['date']}} - {{item['time']}}
+        <a href="{{url_for('edit',id=item.id)}}">Editing</a>
+        </li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+    
+<a href="{{url_for('add')}}">Add New List</a>
+</body>
+</html>
